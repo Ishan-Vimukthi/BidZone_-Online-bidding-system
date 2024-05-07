@@ -23,6 +23,8 @@
   <link th:href="@{/assets/vendor/aos/aos.css}" rel="stylesheet">
   <link th:href="@{/assets/vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
   <link th:href="@{/assets/vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+  <link th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css}" rel="stylesheet">
+
 
   <!-- Template Main CSS File -->
   <link th:href="@{/assets/css/main.css}" rel="stylesheet">
@@ -32,6 +34,7 @@
 <header th:replace="fragments/header :: header"></header>
 
 <!-- Main -->
+<!-- Main -->
 <main id="main">
   <!-- Auctions Section -->
   <section id="auctions" class="auctions">
@@ -40,21 +43,26 @@
         <h2>Auctions</h2>
       </div>
 
-      <div class="row gy-4">
-        <div th:each="auction : ${auctions}" class="col-lg-4">
-          <div class="card">
-            <img th:src="@{'/assets/img/auctions/' + ${auction.image}}" class="card-img-top" alt="Auction Image">
+      <div class="row">
+        <div th:each="item : ${items}" class="col-lg-4 col-md-6 mb-4">
+          <div class="card" style="width: 18rem;">
+            <img th:src="@{'/assets/img/' + ${item.image}}" class="card-img-top" alt="Item Image">
             <div class="card-body">
-              <h5 class="card-title" th:text="${auction.title}">Auction Title</h5>
-              <p class="card-text" th:text="${auction.description}">Auction Description</p>
-              <a href="#" class="btn btn-primary">Bid Now</a>
+              <h5 class="card-title" th:text="${item.name}">Item Name</h5>
+              <h6 class="card-subtitle mb-2 text-muted" th:text="${item.startPrice}">Start Price</h6>
+              <p class="card-text" th:text="${item.description}">Item Description</p>
+              <p class="card-text"><small class="text-muted" th:text="${item.startTime}">Start Time</small></p>
+              <p class="card-text"><small class="text-muted" th:text="${item.endTime}">End Time</small></p>
+              <a href="#" class="btn btn-primary">Bid</a>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </main>
+
 
 <!-- Footer -->
 <footer th:replace="fragments/footer :: footer"></footer>
