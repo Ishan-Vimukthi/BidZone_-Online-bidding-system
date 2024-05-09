@@ -16,9 +16,9 @@ public class LoginController {
     public String login(Users users) {
         Users existingUser = userRepository.findByEmail(users.getEmail());
         if (existingUser != null && existingUser.getPassword().equals(users.getPassword())) {
-            return "redirect:/";
+            return "redirect:/auction";
         } else {
-            return "redirect:/login?error";
+            return "redirect:/login";
         }
     }
 }
