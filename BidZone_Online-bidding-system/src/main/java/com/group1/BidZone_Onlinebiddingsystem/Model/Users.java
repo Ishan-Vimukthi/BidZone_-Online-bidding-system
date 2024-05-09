@@ -5,18 +5,18 @@ import jakarta.persistence.*;
 public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int UserId;
+    private int userID;
     private String userName;
     private String password;
     private String email;
 
 
     public int getUserId() {
-        return UserId;
+        return userID;
     }
 
     public void setUserId(int UserId) {
-        this.UserId = UserId;
+        this.userID = UserId;
     }
 
     public String getUserName() {
