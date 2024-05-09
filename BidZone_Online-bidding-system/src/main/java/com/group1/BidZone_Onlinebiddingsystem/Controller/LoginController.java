@@ -17,7 +17,7 @@ public class LoginController {
     public String login(Users users, RedirectAttributes redirectAttributes) {
         Users existingUser = userRepository.findByEmail(users.getEmail());
         if (existingUser != null && existingUser.getPassword().equals(users.getPassword())) {
-            return "redirect:/auction";
+            return "redirect:/dashboard";
         } else {
             redirectAttributes.addFlashAttribute("error", "Invalid email or password.");
             return "redirect:/login";

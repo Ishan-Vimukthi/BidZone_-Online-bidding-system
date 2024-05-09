@@ -25,5 +25,10 @@ public class PageController {
     public String signup() {
         return "signup";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
+    }
 }
 

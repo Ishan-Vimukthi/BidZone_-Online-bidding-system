@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Impact Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link th:href="@{/assets/img/favicon.png}" rel="icon">
+  <link th:href="@{/assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{/assets/vendor/aos/aos.css}" rel="stylesheet">
+  <link th:href="@{/assets/vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+  <link th:href="@{/assets/vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<header id="header" class="header d-flex align-items-center">
+
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+
+      <h1>BidZone<span>.</span></h1>
+    </a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/auction}">Auction</a></li>
+        <li><b>Hi <span th:text="${username}"></span></b></li>
+
+      </ul>
+    </nav><!-- .navbar -->
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header><!-- End Header -->
+<!-- Main -->
+<main id="main">
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Dashboard</h2>
+
+      </div>
+      <div class="content">
+        <button id="addItemBtn" class="btn btn-custom" data-toggle="modal" data-target="#addItemModal">Add New Item</button>
+
+        <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form th:action="@{/addItem}" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="itemImage">Item Image:</label>
+                    <input type="file" class="form-control" id="itemImage" name="itemImage" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" class="form-control" id="itemName" name="itemName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="itemDescription">Item Description:</label>
+                    <textarea class="form-control" id="itemDescription" name="itemDescription" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="startPrice">Start Price:</label>
+                    <input type="number" class="form-control" id="startPrice" name="startPrice" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="startTime">Start Time:</label>
+                    <input type="time" class="form-control" id="startTime" name="startTime" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="endTime">End Time:</label>
+                    <input type="time" class="form-control" id="endTime" name="endTime" required>
+                  </div>
+                  <button type="submit" class="btn btn-custom">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h6 align="center">Your previous items</h6>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Start Price</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="item : ${items}">
+            <td th:text="${item.itemName}"></td>
+            <td th:text="${item.itemDescription}"></td>
+            <td th:text="${item.startPrice}"></td>
+            <td th:text="${item.startTime}"></td>
+            <td th:text="${item.endTime}"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    </div>
+  </section><!-- End About Us Section -->
+</main>
+
+<!-- Vendor JS Files -->
+<!-- Template Main JS File -->
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/assets/vendor/aos/aos.js}"></script>
+<script th:src="@{/assets/vendor/glightbox/js/glightbox.min.js}"></script>
+<script th:src="@{/assets/vendor/purecounter/purecounter_vanilla.js}"></script>
+<script th:src="@{/assets/vendor/swiper/swiper-bundle.min.js}"></script>
+<script th:src="@{/assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+<script th:src="@{/assets/vendor/php-email-form/validate.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>
