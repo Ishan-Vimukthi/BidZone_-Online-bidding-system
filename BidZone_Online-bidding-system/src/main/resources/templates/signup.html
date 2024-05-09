@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Login Form</title>
+  <title>Signup Form</title>
   <!-- Favicons -->
   <link th:href="@{/assets/img/favicon.png}" rel="icon">
   <link th:href="@{/assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
@@ -83,7 +83,7 @@
       border-radius: 0;
       box-shadow: none;
       font-weight: 300;
-      color: #008374;
+      color: #263340;
       padding-left: 0;
       padding-right: 0;
       border: none;
@@ -100,7 +100,7 @@
     &:active + label,
     &:focus + label,
     &.active + label {
-       color: darken(#008374, 0%);
+       color: darken(#717e88, 0%);
        font-size: 11px;
        top: -10px;
        transform: none;
@@ -150,26 +150,32 @@
       font-size: 12px;
       font-weight: 300;
       margin-top: 20px;
-      color: lighten(#008374, 15%);
+      color: lighten(#717e88, 15%);
     }
   </style>
 </head>
 <body>
 <div class="well">
-  <h2>Sign In</h2>
-  <form th:action="@{/login}" method="post">
+  <h2>Sign Up</h2>
+  <form th:action="@{/signup}" method="post">
     <div class="form-group">
-      <input type="email" class="form-control">
-      <label>Email</label>
+      <label for="fullname">Full Name:</label>
+      <input type="text" class="form-control" id="fullname" name="userName" required>
       <span class="input-border"></span>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control">
-      <label>Password</label>
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
       <span class="input-border"></span>
     </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name="password" required>
+      <span class="input-border"></span>
+    </div>
+
     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-    <p class="helper-text">Don't have an account? <a th:href="@{/signup}">Sign up</a> here.</p>
+    <p class="helper-text">Already have an account? <a th:href="@{/login}">Log in</a> here.</p>
     <p class="helper-text">Back to Home <a th:href="@{/}">Back</a> here.</p>
   </form>
 </div>
