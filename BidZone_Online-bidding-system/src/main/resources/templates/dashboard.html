@@ -26,6 +26,27 @@
 
   <!-- Template Main CSS File -->
   <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+  <style>
+    .btn {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 300;
+      padding: 14px 40px;
+      min-width: 170px;
+      border: none;
+      border-radius: 30px;
+      background: #008374;
+      transition: all .2s ease-in-out;
+      margin-top: 30px;
+    &:hover,
+    &:focus,
+    &:active {
+       background: darken(#008374, 10%);
+       border: none;
+       outline: none;
+     }
+    }
+  </style>
 </head>
 <body>
 <header id="header" class="header d-flex align-items-center">
@@ -39,7 +60,7 @@
       <ul>
         <li><a th:href="@{/}">Home</a></li>
         <li><a th:href="@{/auction}">Auction</a></li>
-        <li><b>Hi <span th:text="${username}"></span></b></li>
+        <li><b>Hi <span th:text="${session.username}"></span></b></li>
 
       </ul>
     </nav><!-- .navbar -->
@@ -60,7 +81,9 @@
 
       </div>
       <div class="content">
-        <button id="addItemBtn" class="btn btn-custom" data-toggle="modal" data-target="#addItemModal">Add New Item</button>
+
+        <button id="addItemBtn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addItemModal" style="background-color: #008374;">Add New Item</button>
+
 
         <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -91,13 +114,13 @@
                   </div>
                   <div class="form-group">
                     <label for="startTime">Start Time:</label>
-                    <input type="time" class="form-control" id="startTime" name="startTime" required>
+                    <input type="datetime-local" class="form-control" id="startTime" name="startTime" required>
                   </div>
                   <div class="form-group">
                     <label for="endTime">End Time:</label>
-                    <input type="time" class="form-control" id="endTime" name="endTime" required>
+                    <input type="datetime-local" class="form-control" id="endTime" name="endTime" required>
                   </div>
-                  <button type="submit" class="btn btn-custom">Submit</button>
+                  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </form>
               </div>
             </div>
@@ -139,6 +162,10 @@
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <div id="preloader"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 
 <!-- Vendor JS Files -->
 <script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>

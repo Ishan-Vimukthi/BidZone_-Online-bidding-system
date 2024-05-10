@@ -1,5 +1,8 @@
 package com.group1.BidZone_Onlinebiddingsystem.Model;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table(name="users")
 public class Users {
@@ -9,6 +12,15 @@ public class Users {
     private String userName;
     private String password;
     private String email;
+
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
 
     public int getUserId() {
