@@ -1,6 +1,6 @@
 package com.group1.BidZone_Onlinebiddingsystem.Model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
