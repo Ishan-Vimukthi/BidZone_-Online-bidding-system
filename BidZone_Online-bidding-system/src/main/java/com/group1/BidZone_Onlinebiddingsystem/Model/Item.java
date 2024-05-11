@@ -1,35 +1,28 @@
 package com.group1.BidZone_Onlinebiddingsystem.Model;
 
 import jakarta.persistence.*;
+
+
+
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Items")
+@Table(name = "Item")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemId;
 
-    @Column(name = "SellerID")
-    private int sellerId;
+    private String userId;
 
-    @Lob
-    @Column(name = "ItemImage", length = Integer.MAX_VALUE,nullable = true, columnDefinition = "LONGBLOB")
-    private byte[] itemImage; // Assuming you choose to store image data
-
-    @Column(name = "Name")
     private String name;
 
-    @Column(name = "Description")
     private String description;
 
-    @Column(name = "StartPrice")
     private double startPrice;
 
-    @Column(name = "StartTime")
     private LocalDateTime startTime;
 
-    @Column(name = "EndTime")
     private LocalDateTime endTime;
 
     public int getItemId() {
@@ -40,20 +33,12 @@ public class Item {
         this.itemId = itemId;
     }
 
-    public int getSellerId() {
-        return sellerId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setSellerId(int sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public byte[] getItemImage() {
-        return itemImage;
-    }
-
-    public void setItemImage(byte[] itemImage) {
-        this.itemImage = itemImage;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
