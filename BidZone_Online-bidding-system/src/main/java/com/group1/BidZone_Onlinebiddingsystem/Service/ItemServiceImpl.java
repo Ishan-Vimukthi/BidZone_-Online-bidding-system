@@ -5,6 +5,8 @@ import com.group1.BidZone_Onlinebiddingsystem.Repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
@@ -17,5 +19,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item saveItem(Item item) {
         return itemRepository.save(item);
+    }
+
+    @Override
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
     }
 }

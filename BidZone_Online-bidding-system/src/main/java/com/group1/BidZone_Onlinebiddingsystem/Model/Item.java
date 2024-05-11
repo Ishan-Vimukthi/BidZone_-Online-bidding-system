@@ -15,7 +15,7 @@ public class Item {
     private int sellerId;
 
     @Lob
-    @Column(name = "ItemImage")
+    @Column(name = "ItemImage", length = Integer.MAX_VALUE,nullable = true, columnDefinition = "LONGBLOB")
     private byte[] itemImage;
 
     @Column(name = "Name")
