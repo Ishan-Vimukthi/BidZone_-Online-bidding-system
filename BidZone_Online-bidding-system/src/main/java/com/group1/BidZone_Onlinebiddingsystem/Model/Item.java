@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Items")
-@PersistenceUnit(unitName = "yourPersistenceUnit")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +15,7 @@ public class Item {
 
     @Lob
     @Column(name = "ItemImage", length = Integer.MAX_VALUE,nullable = true, columnDefinition = "LONGBLOB")
-    private byte[] itemImage;
+    private byte[] itemImage; // Assuming you choose to store image data
 
     @Column(name = "Name")
     private String name;
@@ -32,8 +31,6 @@ public class Item {
 
     @Column(name = "EndTime")
     private LocalDateTime endTime;
-
-    // getters and setters...
 
     public int getItemId() {
         return itemId;
@@ -99,4 +96,3 @@ public class Item {
         this.endTime = endTime;
     }
 }
-

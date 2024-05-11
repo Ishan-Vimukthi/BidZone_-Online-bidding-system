@@ -92,7 +92,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form th:action="@{/addItem}" method="post" enctype="multipart/form-data">
+
+                <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" th:object="${item}">
                   <div class="form-group">
                     <label for="itemImage">Item Image:</label>
                     <input type="file" class="form-control" id="itemImage" name="itemImage" required>
