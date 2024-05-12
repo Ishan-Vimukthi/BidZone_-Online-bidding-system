@@ -62,11 +62,54 @@
         <h2>Auctions</h2>
       </div>
 
+
+
+
       <!-- Card -->
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">Samsung phone</h5>
+          <p class="card-text">Samsung J4+ mobile phone. year: 2019</p>
+          <!-- Add data-toggle and data-target attributes to the button -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bidModal">Place bid</button>
+          <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bidModalLabel">Place Your Bid</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Start Time and End Time -->
+                  <p>Start Time: <span></span></p>
+                  <p>End Time: <span></span></p>
+                  <p>Start Price: <span></span></p>
+
+                  <!-- Bid Form -->
+                  <form action="#" method="post">
+                    <div class="form-group">
+                      <label for="bidAmount">Bid Amount:</label>
+                      <input type="number" class="form-control" id="bidAmount" name="bidAmount" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Bid</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+
+
+      <!-- Card -->
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Keyboard</h5>
+          <p class="card-text">HighTek keyboard</p>
           <!-- Add data-toggle and data-target attributes to the button -->
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bidModal">Place bid</button>
         </div>
