@@ -1,9 +1,9 @@
 package com.group1.BidZone_Onlinebiddingsystem.Repository;
 
-import com.group1.BidZone_Onlinebiddingsystem.Model.Item;
+import com.group1.BidZone_Onlinebiddingsystem.Model.Bid;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Integer> {
+public interface BidRepository extends JpaRepository<Bid, Integer> {
 }
