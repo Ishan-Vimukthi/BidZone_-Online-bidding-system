@@ -25,8 +25,5 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findAll();
     }
 
-    @Override
-    public Optional<Users> findById(int userId) {
-        return Optional.empty();
-    }
+
 }
