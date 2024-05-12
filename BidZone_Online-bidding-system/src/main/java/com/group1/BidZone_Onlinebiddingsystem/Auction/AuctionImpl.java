@@ -12,6 +12,7 @@ public class AuctionImpl extends UnicastRemoteObject implements AuctionInterface
 
     public String listItems() throws RemoteException {
         // Implementation here
+        return "";
     }
 
     public void bidOnItem(String itemId, double bidAmount) throws RemoteException {
@@ -20,5 +21,6 @@ public class AuctionImpl extends UnicastRemoteObject implements AuctionInterface
 
     public String manageAuction() throws RemoteException {
         // Implementation here
+        return "";
     }
 }
